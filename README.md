@@ -1,21 +1,23 @@
-<!-- การจัดกึ่งกลางข้อความ -->
 <div align="center">
 
 # 🌸 ✨ Hi, I'm Apisuta! ✨ 🌸
 ### ─── ⋆⋅☆⋅⋆ ───
-**( 🐰 Put your cute bio / short status quote here! 🌸 )**
+*( 🐰 Coding with passion, coffee, and cute energy! 💕 )*
 
-<!-- สติกเกอร์กระต่ายน่ารักดึ๋งๆ (เป็น GIF) -->
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTVlZjhkOGM0NWNmMjNjMmI4MmY5ZTU5ZTgzZmZiYzkyNDIzZGNmNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lq0h93752f6J9tijrh/giphy.gif" width="200" alt="Cute bunny sticker effect" />
+<br>
+
+<!-- สติกเกอร์ GIF กระต่ายน่ารักของคุณ -->
+<img src="https://i.pinimg.com/originals/13/14/6a/13146a408da0d95f39946b0fa8b1b24b.gif" width="220" alt="Cute Bunny GIF" />
+
+<br><br>
 
 ---
 
 </div>
 
-<!-- ส่วนแนะนำตัว -->
 ### 🎀 ┊ About Me
 
 ```text
  ∧___∧
-( ｡･ω･｡)  "Coding with love, coffee, and a hint of bunny magic! 🐰✨"
+( ｡･ω･｡)  "Coding with love and a hint of magic! 🐰✨"
 /   o  t
