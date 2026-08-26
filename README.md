@@ -1,20 +1,21 @@
 <div align="center">
 
-# 🌸 Hi, I'm Apisuta! ✨
+<!-- Header Banner สีชมพูพาสเทล -->
+![Header](https://capsule-render.vercel.app/api?type=waving&color=ffb6c1&height=180&section=header&text=🌸%20Welcome%20to%20Apisuta's%20World%20🌸&fontSize=28&fontColor=ffffff&animation=twinkling)
+
+# 🎀 ✨ Hi, I'm Apisuta! ✨ 🎀
 
 ─── ⋆⋅☆⋅⋆ ───
 
-*✨ Coding with passion, coffee, and cute energy! 💖*
+*🌸 Coding with passion, coffee, and cute energy! 🍓*
 
 <br/>
-
-![Header Image](https://capsule-render.vercel.app/api?type=waving&color=pink&height=120&section=header&text=Welcome%20to%20my%20world!&fontSize=30&fontColor=ffffff&animation=twinkling)
 
 </div>
 
 ---
 
-### 🎀 About Me
+### 🍓 About Me
 
 ```text
   ∧＿∧
