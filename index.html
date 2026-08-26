@@ -6,48 +6,6 @@
 <title>เว็บไซต์ของฉัน</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐰</text></svg>">
 
-<!-- ==========================================================================
-     แก้เฉพาะในกล่องนี้ก็พอ ส่วนอื่นของไฟล์ไม่ต้องแตะก็ได้
-     ทุกช่องมีคำอธิบายกำกับว่าใส่อะไร
-     ========================================================================== -->
-<script>
-const ME = {
-
-  // 1. เปลี่ยนเป็น GitHub Username จริงของคุณ (ถ้าไม่มีใส่ชื่อภาษาอังกฤษอะไรก็ได้ เช่น "myusername")
-  github: "your-github-username",
-
-  // 2. ใส่ชื่อของคุณ
-  name: "ชื่อของคุณ",
-
-  // 3. ใส่ตำแหน่ง / สาขา / ชั้นปี
-  role: "นักศึกษาวิศวกรรมคอมพิวเตอร์ ปี 1 · มทร.อีสาน",
-
-  // 4. ใส่ประโยคสั้นๆ ที่สนใจ
-  tagline: "อยากทำระบบรดน้ำต้นไม้ที่ดูพยากรณ์อากาศก่อนรดน้ำ",
-
-  // 5. เขียนแนะนำตัว 2-3 บรรทัด
-  about: "สวัสดีครับ/ค่ะ แนะนำตัวสั้นๆ เกี่ยวกับคุณที่นี่...",
-
-  // 6. สิ่งที่กำลังเรียนรู้
-  learning: [
-    "พื้นฐานอินเทอร์เน็ตและบริการออนไลน์",
-    "HTML และ CSS",
-    "การใช้ Git และ GitHub",
-  ],
-
-  // 7. ผลงาน (ถ้ายังไม่มีใส่ [] ไว้ได้)
-  works: [],
-
-  // 8. ลิงก์ติดต่อ
-  links: [
-    { label: "GitHub", url: "https://github.com" },
-  ],
-
-  theme: "pink-sweet",
-
-};
-</script>
-
 <style>
 /* ---------- สีพื้นฐาน และธีมชมพูหวานละมุน (Pink Sweet) ---------- */
 :root,
@@ -297,72 +255,117 @@ footer a{ color:var(--accent); font-weight: 600; }
 </div>
 
 <script>
+// ข้อมูลสำหรับแก้ไขตรงนี้
+const ME = {
+  github: "your-username",
+  name: "ชื่อของคุณ",
+  role: "นักศึกษาวิศวกรรมคอมพิวเตอร์ ปี 1 · มทร.อีสาน",
+  tagline: "หนึ่งประโยคว่าคุณสนใจสร้างอะไร",
+  about: "เขียนแนะนำตัวสัก 2-3 บรรทัด ว่าคุณมาจากไหน สนใจอะไรเป็นพิเศษ และอยากพัฒนาตัวเองไปทางไหน ไม่ต้องยาว ขอให้เป็นตัวคุณจริง ๆ",
+  learning: [
+    "พื้นฐานอินเทอร์เน็ตและบริการออนไลน์",
+    "HTML และ CSS",
+    "การใช้ Git และ GitHub",
+  ],
+  works: [],
+  links: [
+    { label: "GitHub", url: "https://github.com/your-username" },
+  ],
+  theme: "pink-sweet",
+};
+
 const $ = (id) => document.getElementById(id);
 
-/* ---------- 1) นำข้อมูลจากกล่อง ME มาแสดง ---------- */
-document.title = ME.name;
-document.documentElement.dataset.theme = ME.theme || 'pink-sweet';
+function initPage() {
+  /* ---------- 1) นำข้อมูลจากกล่อง ME มาแสดง ---------- */
+  document.title = ME.name || 'เว็บไซต์ของฉัน';
+  document.documentElement.dataset.theme = ME.theme || 'pink-sweet';
 
-$('role').textContent    = ME.role;
-$('name').textContent    = ME.name;
-$('tagline').textContent = ME.tagline;
-$('about').textContent   = ME.about;
+  if ($('role')) $('role').textContent    = ME.role || 'นักศึกษา';
+  if ($('name')) $('name').textContent    = ME.name || 'ชื่อของคุณ';
+  if ($('tagline')) $('tagline').textContent = ME.tagline || '';
+  if ($('about')) $('about').textContent   = ME.about || '';
 
-/* รูปโปรไฟล์ดึงจาก GitHub อัตโนมัติ */
-const avatar = $('avatar');
-avatar.alt = 'รูปโปรไฟล์ของ ' + ME.name;
-avatar.addEventListener('error', () => {
-  const box = document.createElement('div');
-  box.className = 'avatar-fallback';
-  box.setAttribute('aria-hidden', 'true');
-  box.textContent = (ME.name || '?').trim().charAt(0);
-  avatar.replaceWith(box);
-});
-avatar.src = 'https://github.com/' + ME.github + '.png?size=192';
-
-for (const item of ME.learning || []) {
-  const li = document.createElement('li');
-  li.textContent = item;
-  $('learning').appendChild(li);
-}
-
-for (const link of ME.links || []) {
-  const a = document.createElement('a');
-  a.href = link.url;
-  a.textContent = link.label;
-  a.rel = 'noopener noreferrer';
-  const li = document.createElement('li');
-  li.appendChild(a);
-  $('links').appendChild(li);
-}
-
-/* ผลงานยังว่างได้ จะแสดงข้อความพร้อม GIF กระต่าย Snowball น่ารักๆ */
-if (!ME.works || ME.works.length === 0) {
-  const box = document.createElement('div');
-  box.className = 'empty';
-  box.innerHTML = 'ยังไม่มีผลงานในหน้านี้ กำลังเรียนรู้อยู่ แล้วจะกลับมาเพิ่มเรื่อย ๆ น้า 💖<br><img class="snowball-inline" src="https://media.tenor.com/On705C3p1a4AAAAi/snowball-rabbit.gif" alt="Snowball Rabbit">';
-  $('works').appendChild(box);
-} else {
-  for (const w of ME.works) {
-    const card = document.createElement('div');
-    card.className = 'work';
-    const h3 = document.createElement('h3');
-    h3.textContent = w.title;
-    const p = document.createElement('p');
-    p.textContent = w.desc;
-    card.append(h3, p);
-    if (w.url) {
-      const a = document.createElement('a');
-      a.href = w.url;
-      a.textContent = 'ดูผลงาน ↗';
-      a.rel = 'noopener noreferrer';
-      card.appendChild(a);
+  /* รูปโปรไฟล์ดึงจาก GitHub อัตโนมัติ */
+  const avatar = $('avatar');
+  if (avatar) {
+    avatar.alt = 'รูปโปรไฟล์ของ ' + (ME.name || 'ฉัน');
+    avatar.addEventListener('error', () => {
+      const box = document.createElement('div');
+      box.className = 'avatar-fallback';
+      box.setAttribute('aria-hidden', 'true');
+      box.textContent = (ME.name || '🐰').trim().charAt(0);
+      avatar.replaceWith(box);
+    });
+    if (ME.github && ME.github !== 'your-username') {
+      avatar.src = 'https://github.com/' + ME.github + '.png?size=192';
+    } else {
+      avatar.dispatchEvent(new Event('error'));
     }
-    $('works').appendChild(card);
+  }
+
+  if ($('learning')) {
+    $('learning').innerHTML = '';
+    for (const item of ME.learning || []) {
+      const li = document.createElement('li');
+      li.textContent = item;
+      $('learning').appendChild(li);
+    }
+  }
+
+  if ($('links')) {
+    $('links').innerHTML = '';
+    for (const link of ME.links || []) {
+      const a = document.createElement('a');
+      a.href = link.url;
+      a.textContent = link.label;
+      a.rel = 'noopener noreferrer';
+      const li = document.createElement('li');
+      li.appendChild(a);
+      $('links').appendChild(li);
+    }
+  }
+
+  /* ผลงานยังว่างได้ จะแสดงข้อความพร้อม GIF กระต่าย Snowball น่ารักๆ */
+  if ($('works')) {
+    $('works').innerHTML = '';
+    if (!ME.works || ME.works.length === 0) {
+      const box = document.createElement('div');
+      box.className = 'empty';
+      box.innerHTML = 'ยังไม่มีผลงานในหน้านี้ กำลังเรียนรู้อยู่ แล้วจะกลับมาเพิ่มเรื่อย ๆ น้า 💖<br><img class="snowball-inline" src="https://media.tenor.com/On705C3p1a4AAAAi/snowball-rabbit.gif" alt="Snowball Rabbit">';
+      $('works').appendChild(box);
+    } else {
+      for (const w of ME.works) {
+        const card = document.createElement('div');
+        card.className = 'work';
+        const h3 = document.createElement('h3');
+        h3.textContent = w.title;
+        const p = document.createElement('p');
+        p.textContent = w.desc;
+        card.append(h3, p);
+        if (w.url) {
+          const a = document.createElement('a');
+          a.href = w.url;
+          a.textContent = 'ดูผลงาน ↗';
+          a.rel = 'noopener noreferrer';
+          card.appendChild(a);
+        }
+        $('works').appendChild(card);
+      }
+    }
+  }
+
+  if ($('repolink')) {
+    $('repolink').href = 'https://github.com/' + (ME.github || '') + '/' + (ME.github || '') + '.github.io';
   }
 }
 
-$('repolink').href = 'https://github.com/' + ME.github + '/' + ME.github + '.github.io';
+// เรียกฟังก์ชันหลังจาก DOM โหลดเสร็จแล้ว
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPage);
+} else {
+  initPage();
+}
 
 /* ---------- 2) แผงข้อมูลการเชื่อมต่อ อ่านค่าจริงจาก Performance API ---------- */
 function ms(v) {
@@ -371,6 +374,8 @@ function ms(v) {
 }
 
 window.addEventListener('load', () => setTimeout(() => {
+  if (!$('netpanel')) return;
+  $('netpanel').innerHTML = '';
   const nav = performance.getEntriesByType('navigation')[0];
   const rows = [
     ['Domain name', location.hostname || '(เปิดจากไฟล์ในเครื่อง)',
