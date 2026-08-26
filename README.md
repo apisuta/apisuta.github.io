@@ -7,9 +7,9 @@
 
 ─── ⋆⋅☆⋅⋆ ───
 
-*🌷 Miss Apisuta Sanwong ECP2R 🎀*
+*🌷 Apisuta Sanwong ECP2R 🎀*
    <br> วิศวกรรมศาสตร์ <br/>
-    สาขา วิศวคอมพิวเตอร์ 
+      สาขา วิศวคอมพิวเตอร์ 
 
 <br/>
 
