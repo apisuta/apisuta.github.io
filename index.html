@@ -1,357 +1,249 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Web apisuta</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐰</text></svg>">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web apisuta 🌸✨</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐰</text></svg>">
+  <style>
+    :root {
+      --bg: #fff5f7;
+      --surface: #ffffff;
+      --accent: #ff85a2;
+      --accent-dark: #f43f5e;
+      --text: #4a2e35;
+      --text-light: #8c6b74;
+      --border: #fce7f0;
+      --shadow: rgba(255, 133, 162, 0.15);
+    }
 
-<!-- ==========================================================================
-     แก้เฉพาะในกล่องนี้ก็พอ ส่วนอื่นของไฟล์ไม่ต้องแตะก็ได้
-     ========================================================================== -->
-<script>
-const ME = {
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  // GitHub username ของคุณ
-  github: "apisuta",
+    body {
+      font-family: 'Kanit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
 
-  // ชื่อที่ต้องการให้แสดง
-  name: "apisuta 🌸✨",
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-  // บอกว่าคุณคือใคร
-  role: "นักศึกษาวิศวกรรมคอมพิวเตอร์ ปี 2 · มทร.อีสาน 🐰🎀",
+    /* ---------- กระต่าย & เอฟเฟกต์ลอยวิ่งๆ ---------- */
+    .bunny-sticker {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 15px;
+      animation: bounce 3s ease-in-out infinite;
+    }
 
-  // สโลแกน / ความสนใจ
-  tagline: "Coding with passion, coffee, and cute bunny magic! 💖✨",
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
 
-  // แนะนำตัว
-  about: "สวัสดีค่ะ! ยินดีต้อนรับสู่พื้นที่เล็กๆ ของเรา ชอบการพัฒนาเว็บ UI/UX น่ารักๆ รักกระต่าย และการเรียนรู้เทคโนโลยีใหม่ๆ พร้อมเติมความหวานสดใสลงในทุกบรรทัดของโค้ดค่ะ 🎀🐰✨",
+    .bunny-sticker img {
+      width: 350px; /* ปรับขยายขนาดรูปกระต่าย GIF ให้ใหญ่ขึ้น */
+      max-width: 90%;
+      height: auto;
+      border-radius: 12px;
+      filter: drop-shadow(0 8px 15px rgba(236, 72, 153, 0.3));
+    }
 
-  // กำลังเรียนรู้อะไรอยู่ตอนนี้
-  learning: [
-    "🌸 HTML5 & CSS3 Advanced Styling",
-    "🎀 JavaScript & React Web Development",
-    "✨ Git & GitHub Workflow",
-    "🍓 UI/UX Design & Aesthetic Animation"
-  ],
+    .hero {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      padding: 30px 0 8px;
+      flex-wrap: wrap;
+    }
 
-  // ผลงาน
-  works: [],
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      object-fit: cover;
+      flex-shrink: 0;
+      background: var(--surface);
+      box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+    }
 
-  // ช่องทางติดต่อ
-  links: [
-    { label: "🌸 GitHub Profile", url: "https://github.com/apisuta" },
-    { label: "💖 Instagram", url: "https://instagram.com" },
-  ],
+    .hero-text h1 {
+      font-size: 2rem;
+      color: var(--accent-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-  // ธีมสี (ตั้งไว้เป็นชมพูพาสเทล)
-  theme: "pink",
+    .role-tag {
+      font-size: 0.95rem;
+      color: var(--accent-dark);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
 
-};
-</script>
+    .tagline {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
 
-<style>
-/* ---------- สีพื้นฐาน ธีมสีชมพูหวานแหวว (Pink Pastel) ---------- */
-:root,
-[data-theme="pink"] {
-  --bg: #fff0f5;
-  --line: #fbcfe8;
-  --text: #701a75;
-  --muted: #a21caf;
-  --accent: #ec4899;
-  --accent-soft: #f472b6;
-  --glow1: #fce7f3;
-  --glow2: #fbcfe8;
-  --surface: rgba(255, 255, 255, 0.75);
-  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-}
+    .card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 20px 0;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 15px var(--shadow);
+    }
 
-*{ box-sizing:border-box }
+    .about-text {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-body{
-  margin:0; min-height:100vh; color:var(--text);
-  font-family:"Segoe UI","Noto Sans Thai",system-ui,sans-serif;
-  line-height:1.75;
-  background:
-    radial-gradient(1000px 460px at 12% -10%, #fdf2f8 0, transparent 60%),
-    radial-gradient(820px 400px at 92% 0, #fce7f3 0, transparent 55%),
-    var(--bg);
-}
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
 
-.wrap{ max-width:760px; margin:0 auto; padding:0 22px 80px }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
 
-/* ---------- ส่วนหัว & สติกเกอร์กระต่าย ---------- */
-.hero{ display:flex; gap:22px; align-items:center; padding:50px 0 8px; flex-wrap:wrap; position:relative; }
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      color: var(--accent-dark);
+    }
 
-.bunny-sticker {
-  width: 100%;
-  text-align: center;
-  margin-top: -10px;
-  margin-bottom: 10px;
-}
-.bunny-sticker img {
-  max-width: 180px;
-  height: auto;
-  filter: drop-shadow(0 8px 12px rgba(236, 72, 153, 0.2));
-  transition: transform 0.3s ease;
-}
-.bunny-sticker img:hover {
-  transform: scale(1.08) rotate(-3deg);
-}
+    .section-title {
+      font-size: 1.1rem;
+      color: var(--accent-dark);
+      margin: 30px 0 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px dashed var(--border);
+      padding-bottom: 8px;
+    }
 
-.avatar{
-  width:96px; height:96px; border-radius:50%;
-  border:3px solid var(--accent); object-fit:cover; flex-shrink:0;
-  background:var(--surface);
-  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.25);
-}
+    .skills-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-.avatar-fallback{
-  width:96px; height:96px; border-radius:50%; flex-shrink:0;
-  border:3px solid var(--accent); background:var(--surface);
-  display:flex; align-items:center; justify-content:center;
-  font-size:38px; font-weight:600; color:var(--accent);
-  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.25);
-}
+    .skill-item {
+      background: var(--surface);
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 2px 5px var(--shadow);
+    }
 
-.hero-text{ flex:1; min-width:240px }
-.role{
-  font:600 13px/1 var(--mono); letter-spacing:.12em;
-  text-transform:uppercase; color:var(--accent); margin:0 0 8px;
-}
-h1{ font-size:clamp(30px,6vw,44px); line-height:1.15; margin:0 0 8px; letter-spacing:-.02em; color:#86198f; }
-.tagline{ font-size:clamp(16px,2.5vw,19px); color:var(--text); margin:0; opacity:.92; font-weight:500; }
-
-.about{
-  color:var(--muted); margin:20px 0 0; max-width:62ch;
-  background: var(--surface); padding: 16px 20px; border-radius: 16px;
-  border: 1px solid var(--line);
-  box-shadow: 0 4px 12px rgba(251, 207, 232, 0.4);
-}
-
-/* ---------- ปุ่มลิงก์ ---------- */
-.links{ display:flex; flex-wrap:wrap; gap:10px; padding:0; margin:24px 0 0; list-style:none }
-.links a{
-  display:inline-block; border:1px solid var(--line); border-radius:999px;
-  padding:9px 20px; color:var(--text); text-decoration:none; font-size:15px;
-  background: rgba(255, 255, 255, 0.8);
-  font-weight: 500;
-  box-shadow: 0 2px 8px rgba(236, 72, 153, 0.1);
-  transition:all .2s ease;
-}
-.links a:hover, .links a:focus-visible{
-  border-color:var(--accent); color:#fff; background: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
-}
-
-/* ---------- หัวข้อของแต่ละส่วน ---------- */
-section{ margin-top:44px }
-h2{
-  font:600 13px/1 var(--mono); letter-spacing:.16em; text-transform:uppercase;
-  color:var(--accent); border-bottom:2px dashed var(--line);
-  padding-bottom:10px; margin:0 0 20px;
-}
-
-/* ---------- รายการกำลังเรียนรู้ ---------- */
-.learning{ list-style:none; padding:0; margin:0 }
-.learning li{
-  border-left:3px solid var(--accent); padding:4px 0 4px 16px;
-  margin-bottom:12px; color:var(--text);
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 0 12px 12px 0;
-}
-
-/* ---------- ผลงาน ---------- */
-.works{ display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)) }
-.work{
-  border:1px solid var(--line); border-radius:16px; padding:18px 20px;
-  background:var(--surface);
-  box-shadow: 0 4px 12px rgba(251, 207, 232, 0.3);
-}
-.work h3{ margin:0 0 6px; font-size:17px; color:#86198f; }
-.work p{ margin:0; color:var(--muted); font-size:14.5px }
-.work a{ color:var(--accent); text-decoration:none; font-size:14px; display:inline-block; margin-top:10px; font-weight:600; }
-.work a:hover{ text-decoration:underline }
-.empty{
-  border:2px dashed var(--line); border-radius:16px; padding:26px 20px;
-  color:var(--muted); text-align:center; font-size:15px;
-  background: rgba(255, 255, 255, 0.6);
-}
-
-/* ---------- แผงข้อมูลการเชื่อมต่อ ---------- */
-.panel{ border:1px solid var(--line); border-radius:18px; background:var(--surface); padding:8px 20px 16px; box-shadow: 0 4px 12px rgba(251, 207, 232, 0.3); }
-.row{
-  display:grid; grid-template-columns:minmax(130px,1fr) minmax(0,1.5fr); gap:12px;
-  padding:11px 0; border-bottom:1px dashed var(--line); align-items:baseline;
-}
-.row:last-of-type{ border-bottom:0 }
-.row dt{ color:var(--muted); font-size:14px; margin:0; font-weight: 500; }
-.row dd{ margin:0; font-family:var(--mono); font-size:14px; color:var(--accent); word-break:break-all; font-weight: 600; }
-.row .note{ display:block; color:var(--muted); font-family:sans-serif; font-size:12.5px; font-weight: normal; }
-.hint{ color:var(--muted); font-size:13.5px; margin:14px 0 0; text-align: center; }
-
-footer{ margin-top:56px; padding-top:22px; border-top:2px dashed var(--line); color:var(--muted); font-size:14px; text-align: center; }
-footer a{ color:var(--accent); font-weight: 600; text-decoration: none; }
-footer a:hover{ text-decoration: underline; }
-
-@media (max-width:520px){
-  .hero{ padding-top:30px; gap:16px }
-  .avatar, .avatar-fallback{ width:76px; height:76px; font-size:28px }
-  .row{ grid-template-columns:1fr; gap:2px }
-  .bunny-sticker img { max-width: 140px; }
-}
-</style>
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      padding: 20px 0;
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
 
-  <!-- สติกเกอร์การ์ตูน Snowball Bunny ด้านบนสุด -->
-  <div class="bunny-sticker">
-    <img src="https://i.pinimg.com/originals/13/14/6a/13146a408da0d95f39946b0fa8b1b24b.gif" alt="Cute Snowball Bunny GIF" />
+  <div class="container">
+    <!-- ส่วนรูป GIF กระต่ายด้านบน -->
+    <div class="bunny-sticker">
+      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1ZHZ1ZmdkNDB4bnZydWdqcnF1Mnd4NmV2YnFnZ3FnYm0yeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lq0h93752f6J9tijrh/giphy.gif" alt="Bunny Magic">
+    </div>
+
+    <!-- ส่วนโปรไฟล์และข้อมูลส่วนตัว -->
+    <div class="hero">
+      <img class="avatar" src="https://github.com/apisuta.png" alt="apisuta avatar" onerror="this.src='https://via.placeholder.com/96'">
+      <div class="hero-text">
+        <div class="role-tag" id="role-text">นักศึกษาวิศวกรรมคอมพิวเตอร์ ปี 2 • มทร.อีสาน 🐰🎀</div>
+        <h1 id="name-text">apisuta 🌸✨</h1>
+        <div class="tagline" id="tagline-text">Coding with passion, coffee, and cute bunny magic! 💖✨</div>
+      </div>
+    </div>
+
+    <!-- บล็อกแนะนำตัวทางการด้านคอมพิวเตอร์ -->
+    <div class="card">
+      <p class="about-text" id="about-text">
+        สวัสดีค่ะ ดิฉัน นางสาวอภิสุตา แสนวงศ์ นักศึกษาชั้นปีที่ 2 สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยเทคโนโลยีราชมงคลอีสาน วิทยาเขตขอนแก่น มีความสนใจและมุ่งมั่นในด้าน Web Development ทั้ง Front-end Development (HTML5, CSS3, JavaScript, React) รวมถึงการออกแบบ UI/UX Design และการจัดการ Version Control ด้วย Git & GitHub Workflow พร้อมที่จะเรียนรู้เทคโนโลยีใหม่ๆ อยู่เสมอค่ะ 🎀🐰✨
+      </p>
+      
+      <div class="social-links" id="links-container">
+        <a href="https://github.com/apisuta" target="_blank" class="btn">🌸 GitHub Profile</a>
+        <a href="https://instagram.com" target="_blank" class="btn">💖 Instagram</a>
+      </div>
+    </div>
+
+    <!-- รายการทักษะด้านคอมพิวเตอร์ -->
+    <div class="section-title">🌸 กำลังเรียนรู้ (LEARNING)</div>
+    <ul class="skills-list" id="skills-container">
+      <li class="skill-item">🌸 HTML5 & CSS3 Advanced Styling</li>
+      <li class="skill-item">🎀 JavaScript & React Web Development</li>
+      <li class="skill-item">✨ Git & GitHub Workflow</li>
+      <li class="skill-item">🍓 UI/UX Design & Aesthetic Animation</li>
+    </ul>
+
+    <!-- ส่วนผลงาน -->
+    <div class="section-title">🎀 ผลงาน (PROJECTS)</div>
+    <div id="projects-container">
+      <p style="color: var(--text-light); font-size: 0.9rem;">กำลังพัฒนาโปรเจกต์ใหม่เร็วๆ นี้ ✨</p>
+    </div>
+
+    <footer>
+      ✨ ข้อมูลการเชื่อมต่อของหน้าเว็บ
+    </footer>
   </div>
 
-  <header class="hero">
-    <img class="avatar" id="avatar" alt="" width="96" height="96">
-    <div class="hero-text">
-      <p class="role" id="role"></p>
-      <h1 id="name"></h1>
-      <p class="tagline" id="tagline"></p>
-    </div>
-  </header>
-  <p class="about" id="about"></p>
-  <ul class="links" id="links"></ul>
-
-  <section>
-    <h2>🌸 กำลังเรียนรู้ (Learning)</h2>
-    <ul class="learning" id="learning"></ul>
-  </section>
-
-  <section>
-    <h2>🎀 ผลงาน (Projects)</h2>
-    <div class="works" id="works"></div>
-  </section>
-
-  <section>
-    <h2>✨ ข้อมูลการเชื่อมต่อของหน้านี้</h2>
-    <div class="panel">
-      <dl id="netpanel"></dl>
-      <p class="hint">กด F12 เลือกแท็บ Network แล้วกด Ctrl+F5 เพื่อเปรียบเทียบค่า</p>
-    </div>
-  </section>
-
-  <footer>
-    สร้างด้วย ❤️ HTML, CSS และ JavaScript · โฮสต์บน GitHub Pages ·
-    <a id="repolink" href="https://github.com">ดูซอร์สโค้ดของหน้านี้ ↗</a>
-  </footer>
-</div>
-
-<script>
-const $ = (id) => document.getElementById(id);
-
-/* ---------- 1) นำข้อมูลจากกล่อง ME มาแสดง ---------- */
-document.title = ME.name;
-document.documentElement.dataset.theme = ME.theme || 'pink';
-
-$('role').textContent    = ME.role;
-$('name').textContent    = ME.name;
-$('tagline').textContent = ME.tagline;
-$('about').textContent   = ME.about;
-
-const avatar = $('avatar');
-avatar.alt = 'รูปโปรไฟล์ของ ' + ME.name;
-avatar.addEventListener('error', () => {
-  const box = document.createElement('div');
-  box.className = 'avatar-fallback';
-  box.setAttribute('aria-hidden', 'true');
-  box.textContent = (ME.name || '?').trim().charAt(0);
-  avatar.replaceWith(box);
-});
-avatar.src = 'https://github.com/' + ME.github + '.png?size=192';
-
-for (const item of ME.learning || []) {
-  const li = document.createElement('li');
-  li.textContent = item;
-  $('learning').appendChild(li);
-}
-
-for (const link of ME.links || []) {
-  const a = document.createElement('a');
-  a.href = link.url;
-  a.textContent = link.label;
-  a.rel = 'noopener noreferrer';
-  const li = document.createElement('li');
-  li.appendChild(a);
-  $('links').appendChild(li);
-}
-
-if (!ME.works || ME.works.length === 0) {
-  const box = document.createElement('div');
-  box.className = 'empty';
-  box.textContent = '🎀 ยังไม่มีผลงานในหน้านี้ กำลังเรียนรู้อยู่ แล้วจะกลับมาเพิ่มเรื่อย ๆ นะคะ ✨';
-  $('works').appendChild(box);
-} else {
-  for (const w of ME.works) {
-    const card = document.createElement('div');
-    card.className = 'work';
-    const h3 = document.createElement('h3');
-    h3.textContent = w.title;
-    const p = document.createElement('p');
-    p.textContent = w.desc;
-    card.append(h3, p);
-    if (w.url) {
-      const a = document.createElement('a');
-      a.href = w.url;
-      a.textContent = 'ดูผลงาน ↗';
-      a.rel = 'noopener noreferrer';
-      card.appendChild(a);
-    }
-    $('works').appendChild(card);
-  }
-}
-
-$('repolink').href = 'https://github.com/' + ME.github + '/' + ME.github + '.github.io';
-
-/* ---------- 2) แผงข้อมูลการเชื่อมต่อ อ่านค่าจริงจาก Performance API ---------- */
-function ms(v) {
-  if (typeof v !== 'number' || v < 0 || Number.isNaN(v)) return '—';
-  return Math.round(v) + ' ms';
-}
-
-window.addEventListener('load', () => setTimeout(() => {
-  const nav = performance.getEntriesByType('navigation')[0];
-  const rows = [
-    ['Domain name', location.hostname || '(เปิดจากไฟล์ในเครื่อง)',
-     'ชื่อโดเมนต้องถูกแปลงเป็น IP address ผ่าน DNS ก่อน จึงจะติดต่อ server ได้'],
-    ['Protocol', location.protocol,
-     'https คือ HTTP ที่เพิ่มการเข้ารหัสและการยืนยันตัวตน server ด้วย certificate'],
-  ];
-  if (nav) rows.push(
-    ['HTTP version', nav.nextHopProtocol || '—',
-     'h2 คือ HTTP/2 และ h3 คือ HTTP/3 ซึ่งส่งหลายไฟล์พร้อมกันได้ในการเชื่อมต่อเดียว'],
-    ['DNS lookup', ms(nav.domainLookupEnd - nav.domainLookupStart),
-     'เวลาที่ใช้แปลงชื่อโดเมนเป็น IP address ถ้าได้ 0 ms แปลว่ามีคำตอบอยู่ใน cache แล้ว'],
-    ['Connection + TLS', ms(nav.connectEnd - nav.connectStart),
-     'เวลาสร้างการเชื่อมต่อ รวมขั้นตอน TLS handshake ก่อนเริ่มรับส่งข้อมูลจริง'],
-    ['TTFB', ms(nav.responseStart - nav.requestStart),
-     'Time To First Byte เวลาตั้งแต่ส่ง request จนได้ข้อมูลไบต์แรกกลับมา ยิ่ง server ไกลยิ่งสูง'],
-  );
-
-  for (const [label, value, note] of rows) {
-    const row = document.createElement('div');
-    row.className = 'row';
-    const dt = document.createElement('dt');
-    dt.textContent = label;
-    const dd = document.createElement('dd');
-    dd.textContent = value;
-    const small = document.createElement('span');
-    small.className = 'note';
-    small.textContent = note;
-    dd.appendChild(small);
-    row.append(dt, dd);
-    $('netpanel').appendChild(row);
-  }
-}, 0));
-</script>
+  <script>
+    // ข้อมูล JavaScript Object
+    const ME = {
+      github: "apisuta",
+      name: "apisuta 🌸✨",
+      role: "นักศึกษาวิศวกรรมคอมพิวเตอร์ ปี 2 • มทร.อีสาน 🐰🎀",
+      tagline: "Coding with passion, coffee, and cute bunny magic! 💖✨",
+      about: "สวัสดีค่ะ ดิฉัน นางสาวอภิสุตา แสนวงศ์ นักศึกษาชั้นปีที่ 2 สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยเทคโนโลยีราชมงคลอีสาน วิทยาเขตขอนแก่น มีความสนใจและมุ่งมั่นในด้าน Web Development ทั้ง Front-end Development (HTML5, CSS3, JavaScript, React) รวมถึงการออกแบบ UI/UX Design และการจัดการ Version Control ด้วย Git & GitHub Workflow พร้อมที่จะเรียนรู้เทคโนโลยีใหม่ๆ อยู่เสมอค่ะ 🎀🐰✨",
+      learning: [
+        "🌸 HTML5 & CSS3 Advanced Styling",
+        "🎀 JavaScript & React Web Development",
+        "✨ Git & GitHub Workflow",
+        "🍓 UI/UX Design & Aesthetic Animation"
+      ]
+    };
+  </script>
 </body>
 </html>
