@@ -3,30 +3,74 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>โปรไฟล์ของฉัน</title>
+<title>เว็บไซต์ของฉัน</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐰</text></svg>">
+
+<!-- ==========================================================================
+     แก้เฉพาะในกล่องนี้ก็พอ ส่วนอื่นของไฟล์ไม่ต้องแตะก็ได้
+     ทุกช่องมีคำอธิบายกำกับว่าใส่อะไร
+     ========================================================================== -->
+<script>
+const ME = {
+
+  // GitHub username ของคุณ ใช้ดึงรูปโปรไฟล์มาแสดงอัตโนมัติ ไม่ต้องอัปโหลดรูปเอง
+  github: "your-username",
+
+  // ชื่อที่ต้องการให้แสดง ใช้ชื่อเล่นได้
+  name: "ชื่อของคุณ",
+
+  // บอกว่าคุณคือใคร สั้น ๆ
+  role: "นักศึกษาวิศวกรรมคอมพิวเตอร์ ปี 1 · มทร.อีสาน",
+
+  // หนึ่งประโยคว่าคุณสนใจสร้างอะไร เขียนให้เจาะจง อย่าเขียนกว้าง ๆ
+  tagline: "หนึ่งประโยคว่าคุณสนใจสร้างอะไร",
+
+  // แนะนำตัว 2-3 บรรทัด ว่ามาจากไหน สนใจอะไร กำลังจะไปทางไหน
+  about: "เขียนแนะนำตัวสัก 2-3 บรรทัด ว่าคุณมาจากไหน สนใจอะไรเป็นพิเศษ และอยากพัฒนาตัวเองไปทางไหน ไม่ต้องยาว ขอให้เป็นตัวคุณจริง ๆ",
+
+  // กำลังเรียนรู้อะไรอยู่ตอนนี้ ใส่ได้ 2-5 รายการ
+  learning: [
+    "พื้นฐานอินเทอร์เน็ตและบริการออนไลน์",
+    "HTML และ CSS",
+    "การใช้ Git และ GitHub",
+  ],
+
+  // ผลงาน ปี 1 เทอมแรกยังไม่มีก็ไม่เป็นไร ปล่อยว่างไว้ได้ หน้าเว็บจะขึ้นข้อความให้เอง
+  works: [],
+
+  // ช่องทางติดต่อ ใช้ลิงก์สาธารณะเท่านั้น อย่าใส่เบอร์โทรหรืออีเมลส่วนตัว
+  links: [
+    { label: "GitHub", url: "https://github.com/your-username" },
+  ],
+
+  // ธีมสี (ตั้งเป็นธีมสีชมพูหวานละมุน)
+  theme: "pink-sweet",
+
+};
+</script>
 
 <style>
 /* ---------- สีพื้นฐาน และธีมชมพูหวานละมุน (Pink Sweet) ---------- */
-:root {
+:root,
+[data-theme="pink-sweet"] {
   --bg: #fff0f5;             /* สีพื้นหลังชมพูอ่อนละมุน LavenderBlush */
   --line: #fbcfe8;           /* เส้นขอบสีชมพูพาสเทล */
-  --text: #831843;           /* สีตัวอักษรชมพูเข้ม */
+  --text: #831843;           /* สีตัวอักษรชมพูเข้ม อ่านง่ายชัดเจน */
   --muted: #9d174d;          /* สีข้อความรองชมพูเข้มโทนอุ่น */
   --accent: #ec4899;         /* สีเน้นชมพูสดใส */
   --accent-soft: #f43f5e;    /* สีเน้นรอง */
   --surface: rgba(255, 255, 255, 0.75); /* พื้นหลังการ์ดโปร่งแสงโทนขาวนวล */
-  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --glow1: #ffe4e6;
+  --glow2: #fce7f3;
+  --mono: ui-monospace,"SF Mono",Menlo,Consolas,monospace;
 }
 
-*{ box-sizing: border-box; }
+*{ box-sizing:border-box }
 
-body {
-  margin: 0; 
-  min-height: 100vh; 
-  color: var(--text);
-  font-family: "Segoe UI", "Noto Sans Thai", system-ui, sans-serif;
-  line-height: 1.75;
+body{
+  margin:0; min-height:100vh; color:var(--text);
+  font-family:"Segoe UI","Noto Sans Thai",system-ui,sans-serif;
+  line-height:1.75;
   background:
     radial-gradient(1000px 500px at 20% -10%, #fde2e4 0, transparent 70%),
     radial-gradient(800px 400px at 80% 100%, #fff1e6 0, transparent 70%),
@@ -61,7 +105,7 @@ body {
   100% { transform: translateY(-60px) scale(0); opacity: 0; }
 }
 
-/* ตำแหน่งกระจัดกระจายของประกายวิ้งๆ */
+/* ตำแหน่งแบบสุ่มของเอฟเฟกต์ฟรุ้งฟริ้ง */
 .sparkle:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
 .sparkle:nth-child(2) { top: 30%; left: 85%; animation-delay: 1s; }
 .sparkle:nth-child(3) { top: 60%; left: 10%; animation-delay: 2s; }
@@ -88,108 +132,114 @@ body {
 .snowball-inline {
   display: block;
   margin: 10px auto 0;
-  width: 100px;
+  width: 90px;
   height: auto;
 }
 
 /* ความกว้างจำกัดไว้ */
-.wrap { max-width: 760px; margin: 0 auto; padding: 0 22px 80px; position: relative; z-index: 1; }
+.wrap{ max-width:760px; margin:0 auto; padding:0 22px 80px; position: relative; z-index: 1; }
 
 /* ---------- ส่วนหัว ---------- */
-.hero { display: flex; gap: 22px; align-items: center; padding: 64px 0 8px; flex-wrap: wrap; }
-.avatar, .avatar-fallback {
-  width: 96px; height: 96px; border-radius: 50%; flex-shrink: 0;
-  border: 3px solid var(--accent); background: var(--surface);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 38px; font-weight: 600; color: var(--accent);
+.hero{ display:flex; gap:22px; align-items:center; padding:64px 0 8px; flex-wrap:wrap }
+.avatar{
+  width:96px; height:96px; border-radius:50%;
+  border:3px solid var(--accent); object-fit:cover; flex-shrink:0;
+  background:var(--surface);
   box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
-  object-fit: cover;
 }
-.hero-text { flex: 1; min-width: 240px; }
-.role {
-  font: 600 12px/1 var(--mono); letter-spacing: .14em;
-  text-transform: uppercase; color: var(--accent); margin: 0 0 8px;
+.avatar-fallback{
+  width:96px; height:96px; border-radius:50%; flex-shrink:0;
+  border:3px solid var(--accent); background:var(--surface);
+  display:flex; align-items:center; justify-content:center;
+  font-size:38px; font-weight:600; color:var(--accent);
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
 }
-h1 { font-size: clamp(30px, 6vw, 46px); line-height: 1.15; margin: 0 0 8px; letter-spacing: -.02em; color: #831843; }
-.tagline { font-size: clamp(17px, 2.6vw, 20px); color: var(--text); margin: 0; opacity: .92; }
+.hero-text{ flex:1; min-width:240px }
+.role{
+  font:600 12px/1 var(--mono); letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 8px;
+}
+h1{ font-size:clamp(30px,6vw,46px); line-height:1.15; margin:0 0 8px; letter-spacing:-.02em; color: #831843; }
+.tagline{ font-size:clamp(17px,2.6vw,20px); color:var(--text); margin:0; opacity:.92 }
 
-.about { color: var(--muted); margin: 26px 0 0; max-width: 62ch; }
+.about{ color:var(--muted); margin:26px 0 0; max-width:62ch }
 
 /* ---------- ปุ่มลิงก์ ---------- */
-.links { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 24px 0 0; list-style: none; }
-.links a {
-  display: inline-block; border: 1.5px solid var(--line); border-radius: 999px;
-  padding: 9px 20px; color: var(--text); text-decoration: none; font-size: 15px;
+.links{ display:flex; flex-wrap:wrap; gap:10px; padding:0; margin:24px 0 0; list-style:none }
+.links a{
+  display:inline-block; border:1.5px solid var(--line); border-radius:999px;
+  padding:9px 20px; color:var(--text); text-decoration:none; font-size:15px;
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(4px);
-  transition: all .2s ease;
+  transition:all .2s ease;
 }
-.links a:hover, .links a:focus-visible {
-  border-color: var(--accent);
-  color: var(--accent);
+.links a:hover, .links a:focus-visible{
+  border-color:var(--accent);
+  color:var(--accent);
   background: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15);
 }
 
 /* ---------- หัวข้อของแต่ละส่วน ---------- */
-section { margin-top: 52px; }
-h2 {
-  font: 600 13px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
-  color: var(--accent); border-bottom: 2px solid var(--line);
-  padding-bottom: 10px; margin: 0 0 20px;
+section{ margin-top:52px }
+h2{
+  font:600 13px/1 var(--mono); letter-spacing:.16em; text-transform:uppercase;
+  color:var(--accent); border-bottom:2px solid var(--line);
+  padding-bottom:10px; margin:0 0 20px;
 }
 
 /* ---------- รายการกำลังเรียนรู้ ---------- */
-.learning { list-style: none; padding: 0; margin: 0; }
-.learning li {
-  border-left: 3px solid var(--accent); padding: 8px 16px;
-  margin-bottom: 14px; color: var(--muted);
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 0 10px 10px 0;
-  box-shadow: 0 2px 8px rgba(251, 207, 232, 0.2);
+.learning{ list-style:none; padding:0; margin:0 }
+.learning li{
+  border-left:3px solid var(--accent); padding:4px 0 4px 16px;
+  margin-bottom:14px; color:var(--muted);
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0 8px 8px 0;
 }
 
 /* ---------- ผลงาน ---------- */
-.works { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-.work {
-  border: 1px solid var(--line); border-radius: 16px; padding: 18px;
-  background: var(--surface);
+.works{ display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)) }
+.work{
+  border:1px solid var(--line); border-radius:16px; padding:18px;
+  background:var(--surface);
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 15px rgba(251, 207, 232, 0.3);
   transition: transform 0.2s ease;
 }
-.work:hover { transform: translateY(-3px); }
-.work h3 { margin: 0 0 6px; font-size: 17px; color: var(--text); }
-.work p { margin: 0; color: var(--muted); font-size: 14.5px; }
-.work a { color: var(--accent); text-decoration: none; font-size: 14px; display: inline-block; margin-top: 10px; font-weight: 600; }
-.work a:hover { text-decoration: underline; }
-.empty {
-  border: 2px dashed var(--line); border-radius: 16px; padding: 26px 20px;
-  color: var(--muted); text-align: center; font-size: 15px;
+.work:hover {
+  transform: translateY(-3px);
+}
+.work h3{ margin:0 0 6px; font-size:17px; color: var(--text); }
+.work p{ margin:0; color:var(--muted); font-size:14.5px }
+.work a{ color:var(--accent); text-decoration:none; font-size:14px; display:inline-block; margin-top:10px; font-weight: 600; }
+.work a:hover{ text-decoration:underline }
+.empty{
+  border:2px dashed var(--line); border-radius:16px; padding:26px 20px;
+  color:var(--muted); text-align:center; font-size:15px;
   background: rgba(255, 255, 255, 0.5);
 }
 
 /* ---------- แผงข้อมูลการเชื่อมต่อ ---------- */
-.panel { border: 1px solid var(--line); border-radius: 16px; background: var(--surface); padding: 4px 20px 16px; backdrop-filter: blur(8px); }
-.row {
-  display: grid; grid-template-columns: minmax(130px, 1fr) minmax(0, 1.5fr); gap: 12px;
-  padding: 11px 0; border-bottom: 1px dashed var(--line); align-items: baseline;
+.panel{ border:1px solid var(--line); border-radius:16px; background:var(--surface); padding:4px 20px 16px; backdrop-filter: blur(8px); }
+.row{
+  display:grid; grid-template-columns:minmax(130px,1fr) minmax(0,1.5fr); gap:12px;
+  padding:11px 0; border-bottom:1px dashed var(--line); align-items:baseline;
 }
-.row:last-of-type { border-bottom: 0; }
-.row dt { color: var(--muted); font-size: 14px; margin: 0; font-weight: 600; }
-.row dd { margin: 0; font-family: var(--mono); font-size: 14px; color: var(--accent); word-break: break-all; }
-.row .note { display: block; color: var(--muted); font-family: inherit; font-size: 12.5px; }
-.hint { color: var(--muted); font-size: 14px; margin: 14px 0 0; }
+.row:last-of-type{ border-bottom:0 }
+.row dt{ color:var(--muted); font-size:14px; margin:0; font-weight: 600; }
+.row dd{ margin:0; font-family:var(--mono); font-size:14px; color:var(--accent); word-break:break-all }
+.row .note{ display:block; color:var(--muted); font-family:inherit; font-size:12.5px }
+.hint{ color:var(--muted); font-size:14px; margin:14px 0 0 }
 
-footer { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
-footer a { color: var(--accent); font-weight: 600; }
+footer{ margin-top:56px; padding-top:22px; border-top:1px solid var(--line); color:var(--muted); font-size:14px }
+footer a{ color:var(--accent); font-weight: 600; }
 
 /* ---------- จอมือถือ ---------- */
-@media (max-width: 520px) {
-  .hero { padding-top: 44px; gap: 16px; }
-  .avatar, .avatar-fallback { width: 72px; height: 72px; font-size: 28px; }
-  .row { grid-template-columns: 1fr; gap: 2px; }
+@media (max-width:520px){
+  .hero{ padding-top:44px; gap:16px }
+  .avatar, .avatar-fallback{ width:72px; height:72px; font-size:28px }
+  .row{ grid-template-columns:1fr; gap:2px }
   .snowball-corner { width: 80px; bottom: 10px; right: 10px; }
 }
 </style>
@@ -214,36 +264,22 @@ footer a { color: var(--accent); font-weight: 600; }
   <header class="hero">
     <img class="avatar" id="avatar" alt="" width="96" height="96">
     <div class="hero-text">
-      <p class="role" id="role">นักศึกษาวิศวกรรมคอมพิวเตอร์ ปี 1 · มทร.อีสาน</p>
-      <h1 id="name">ชื่อของคุณ</h1>
-      <p class="tagline" id="tagline">หนึ่งประโยคว่าคุณสนใจสร้างอะไร</p>
+      <p class="role" id="role"></p>
+      <h1 id="name"></h1>
+      <p class="tagline" id="tagline"></p>
     </div>
   </header>
-  
-  <p class="about" id="about">เขียนแนะนำตัวสัก 2-3 บรรทัด ว่าคุณมาจากไหน สนใจอะไรเป็นพิเศษ และอยากพัฒนาตัวเองไปทางไหน ไม่ต้องยาว ขอให้เป็นตัวคุณจริง ๆ</p>
-  
-  <ul class="links" id="links">
-    <li><a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-  </ul>
+  <p class="about" id="about"></p>
+  <ul class="links" id="links"></ul>
 
   <section>
     <h2>กำลังเรียนรู้ ✨</h2>
-    <ul class="learning" id="learning">
-      <li>พื้นฐานอินเทอร์เน็ตและบริการออนไลน์</li>
-      <li>HTML และ CSS</li>
-      <li>การใช้ Git และ GitHub</li>
-    </ul>
+    <ul class="learning" id="learning"></ul>
   </section>
 
   <section>
     <h2>ผลงาน 🎀</h2>
-    <div class="works" id="works">
-      <div class="empty">
-        ยังไม่มีผลงานในหน้านี้ กำลังเรียนรู้อยู่ แล้วจะกลับมาเพิ่มเรื่อย ๆ น้า 💖
-        <br>
-        <img class="snowball-inline" src="https://media.tenor.com/On705C3p1a4AAAAi/snowball-rabbit.gif" alt="Snowball Rabbit">
-      </div>
-    </div>
+    <div class="works" id="works"></div>
   </section>
 
   <!-- ข้อมูลการเชื่อมต่อ -->
@@ -257,60 +293,79 @@ footer a { color: var(--accent); font-weight: 600; }
 
   <footer>
     สร้างด้วย HTML, CSS และ JavaScript · โฮสต์บน GitHub Pages ·
-    <a id="repolink" href="https://github.com" target="_blank">ดูซอร์สโค้ดของหน้านี้</a>
+    <a id="repolink" href="https://github.com">ดูซอร์สโค้ดของหน้านี้</a>
   </footer>
 </div>
 
 <script>
-/* ==========================================================================
-   คุณสามารถมาเปลี่ยนข้อมูลส่วนตัวของคุณตรงนี้ได้เลยน้า
-   ========================================================================== */
-const ME = {
-  github: "your-username", // ใส่ GitHub Username ของคุณ
-  name: "ชื่อของคุณ",
-  role: "นักศึกษาวิศวกรรมคอมพิวเตอร์ ปี 1 · มทร.อีสาน",
-  tagline: "หนึ่งประโยคว่าคุณสนใจสร้างอะไร",
-  about: "เขียนแนะนำตัวสัก 2-3 บรรทัด ว่าคุณมาจากไหน สนใจอะไรเป็นพิเศษ และอยากพัฒนาตัวเองไปทางไหน ไม่ต้องยาว ขอให้เป็นตัวคุณจริง ๆ",
-  learning: [
-    "พื้นฐานอินเทอร์เน็ตและบริการออนไลน์",
-    "HTML และ CSS",
-    "การใช้ Git และ GitHub",
-  ],
-  works: [],
-  links: [
-    { label: "GitHub", url: "https://github.com/your-username" },
-  ]
-};
-
 const $ = (id) => document.getElementById(id);
 
-// แสดงข้อมูลโปรไฟล์
+/* ---------- 1) นำข้อมูลจากกล่อง ME มาแสดง ---------- */
 document.title = ME.name;
-if (ME.role) $('role').textContent = ME.role;
-if (ME.name) $('name').textContent = ME.name;
-if (ME.tagline) $('tagline').textContent = ME.tagline;
-if (ME.about) $('about').textContent = ME.about;
+document.documentElement.dataset.theme = ME.theme || 'pink-sweet';
 
-// จัดการรูปโปรไฟล์ (ถ้าไม่มีรูป GitHub หรือพิม username ผิด จะขึ้นตัวอักษรแรกของชื่อแทน)
+$('role').textContent    = ME.role;
+$('name').textContent    = ME.name;
+$('tagline').textContent = ME.tagline;
+$('about').textContent   = ME.about;
+
+/* รูปโปรไฟล์ดึงจาก GitHub อัตโนมัติ */
 const avatar = $('avatar');
 avatar.alt = 'รูปโปรไฟล์ของ ' + ME.name;
 avatar.addEventListener('error', () => {
   const box = document.createElement('div');
   box.className = 'avatar-fallback';
-  box.textContent = (ME.name || 'ช').trim().charAt(0);
+  box.setAttribute('aria-hidden', 'true');
+  box.textContent = (ME.name || '?').trim().charAt(0);
   avatar.replaceWith(box);
 });
+avatar.src = 'https://github.com/' + ME.github + '.png?size=192';
 
-if (ME.github && ME.github !== 'your-username') {
-  avatar.src = 'https://github.com/' + ME.github + '.png?size=192';
+for (const item of ME.learning || []) {
+  const li = document.createElement('li');
+  li.textContent = item;
+  $('learning').appendChild(li);
+}
+
+for (const link of ME.links || []) {
+  const a = document.createElement('a');
+  a.href = link.url;
+  a.textContent = link.label;
+  a.rel = 'noopener noreferrer';
+  const li = document.createElement('li');
+  li.appendChild(a);
+  $('links').appendChild(li);
+}
+
+/* ผลงานยังว่างได้ จะแสดงข้อความพร้อม GIF กระต่าย Snowball น่ารักๆ */
+if (!ME.works || ME.works.length === 0) {
+  const box = document.createElement('div');
+  box.className = 'empty';
+  box.innerHTML = 'ยังไม่มีผลงานในหน้านี้ กำลังเรียนรู้อยู่ แล้วจะกลับมาเพิ่มเรื่อย ๆ น้า 💖<br><img class="snowball-inline" src="https://media.tenor.com/On705C3p1a4AAAAi/snowball-rabbit.gif" alt="Snowball Rabbit">';
+  $('works').appendChild(box);
 } else {
-  // โหลดรูปตัวแทนทันที
-  avatar.dispatchEvent(new Event('error'));
+  for (const w of ME.works) {
+    const card = document.createElement('div');
+    card.className = 'work';
+    const h3 = document.createElement('h3');
+    h3.textContent = w.title;
+    const p = document.createElement('p');
+    p.textContent = w.desc;
+    card.append(h3, p);
+    if (w.url) {
+      const a = document.createElement('a');
+      a.href = w.url;
+      a.textContent = 'ดูผลงาน ↗';
+      a.rel = 'noopener noreferrer';
+      card.appendChild(a);
+    }
+    $('works').appendChild(card);
+  }
 }
 
 $('repolink').href = 'https://github.com/' + ME.github + '/' + ME.github + '.github.io';
 
-/* ---------- แผงข้อมูลการเชื่อมต่อ อ่านค่าจริงจาก Performance API ---------- */
+/* ---------- 2) แผงข้อมูลการเชื่อมต่อ อ่านค่าจริงจาก Performance API ---------- */
 function ms(v) {
   if (typeof v !== 'number' || v < 0 || Number.isNaN(v)) return '—';
   return Math.round(v) + ' ms';
